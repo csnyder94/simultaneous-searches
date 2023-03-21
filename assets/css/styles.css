@@ -1,0 +1,19 @@
+:root {
+    --blue: rgb(96, 142, 241);
+    --white: rgb(249, 245, 245);
+    --black: rgb(11, 11, 11); 
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+}
+
+.nav-bar {
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 30px;
+    align-items: baseline;
+}
+.search-input {
+    margin-top: 30px;
+}
