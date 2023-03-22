@@ -5,36 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- google fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- simple css -->
+    <!-- Simple CSS -->
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <!-- style sheet link -->
+    <!-- Style Sheet -->
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>Simultaneous Search</title>
+    <title>Simultaneous Search</title> <!-- Website Title -->
 </head>
 
 <body>
-    
-    <header class="nav-bar">
+
+    <header class="main-header"> <!-- Used to reference in CSS -->
         <h2>Simultaneous Search</h2>
     </header>
 
-    <form id="search-form">
-        <input type="text" id="q" placeholder="Search.." class="search-input" name="search">
+    <form id="search-form"> <!-- Creates form with submit button (Referenced in CSS and JS) -->
+        <input type="text" id="q" placeholder="Search" class="search-input" name="search">
         <button type="submit" class="search-button">Search</button>
     </form>
-    
-    <!-- added a div to hold wikipedia search results -->
 
+        <div id="wikipediaDiv"></div> <!-- Div to display wikipedia content-->
+        <ul id="videos"></ul> <!-- Div to display Bing Videos -->
 
-    <!-- added wikipedia div to display wikipedia results above video search results -->
-    <div id="wikipediaDiv"></div> 
-    <ul id="videos"></ul>
-
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script> <!-- Script Link-->
 </body>
 
 </html>
