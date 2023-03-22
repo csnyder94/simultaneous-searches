@@ -1,6 +1,7 @@
 var searchForm = document.querySelector('#search-form')
 var qInput = document.querySelector('#q');
 var videosList = document.getElementById('videos');
+var wikipediaDiv = document.getElementById('wikipediaDiv'); // added this line
 
 var wikiHandleSearch = function (event) {
     event.preventDefault();
@@ -18,12 +19,20 @@ var wikiHandleSearch = function (event) {
             return response.json();
             })
             .then(function (data) {
-                console.log(data);
+                // added code to display wikipedia search results
+                var results = data[1];
+                var links = data[3];
+                var html = '<ul>';
+                for (var i = 0; i < results.length; i++) {
+                    html += `<li><a href="${links[i]}" target="_blank">${results[i]}</a></li>`;
+                }
+                html += '</ul>';
+                wikipediaDiv.innerHTML = html;
             })
             .catch(function (err) {
                 console.log(err);
             });
-}
+};
  
 searchForm.addEventListener('submit', wikiHandleSearch);
 
@@ -43,7 +52,13 @@ searchForm.addEventListener('submit', function(event) {
         .then(response => {
             videosList.innerHTML = '';
             var videos = response.value;
-            console.log(videos)       
+            // added this for loop 
+            for (var i = 0; i < videos.length; i++) {
+                var video = videos[i];
+                var li = document.createElement('li');
+                li.innerHTML = `<h3>${video.name}</h3><p>${video.description}</p><a href="${video.contentUrl}" target="_blank">Watch video</a>`;
+                videosList.appendChild(li);
+            }
         })
         .catch(err => console.error(err));
 });
