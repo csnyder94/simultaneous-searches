@@ -10,7 +10,7 @@ body {  /* Style for entire body */
     margin:0;
 }
 
-html{ /* Style for remaining HTML page */
+html { /* Style for remaining HTML page */
     background-color: lightgrey;
     height: 100%;
     margin: 0;
@@ -25,33 +25,31 @@ html{ /* Style for remaining HTML page */
 }
 
 .search-input { /* Style for search box */
-    margin: 20px ;
+    margin: 30px ;
+    font-size: 20px;
 }
 
 .search-button { /* Search Button Style */
+    margin: 30px;
     background-color: var(--blue);
     color: var(--white);
     border-radius: 8px;
+    font-size: 20px;
+    margin-left: 0;
 }
 
-.columns{ /* Styling for columns and assigned size for footer usage */
+.columns { /* Styling for columns and assigned size for footer usage */
     font-weight: bolder;
     min-height: 100%;
     margin-bottom: 100px;
 }
 
-ul{   /* Removes "." from all lis */
+ul {   /* Removes "." from all lis */
     list-style-type: none;
 }
 
-#wiki-results{ /* Removes "." from wiki lis */
+#wiki-results { /* Removes "." from wiki lis */
     list-style-type: none;
-}
-
-footer { /* Forces footer to bottom */
-    height: 100px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+    font-size: 20px;
+    margin: 20px;
 }
