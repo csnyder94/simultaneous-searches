@@ -2,6 +2,7 @@ var searchForm = document.querySelector('#search-form') //Getting Variables From
 var qInput = document.querySelector('#q');
 var videosList = document.getElementById('videos');
 var wikipediaDiv = document.getElementById('wikipediaDiv');
+var wikiResults = document.getElementById('wiki-results');
 
 var wikiHandleSearch = function (event) { //Function to fetch from WikiPedia
     event.preventDefault(); //Prevents page from resetting on submission
@@ -21,15 +22,18 @@ var wikiHandleSearch = function (event) { //Function to fetch from WikiPedia
             
         })
         .then(function (data) { //Iterates through data and appends Wikipedia URLs onto page
-            console.log(data)
+            // console.log(data)
             var results = data[1];
             var links = data[3];
             var html = '<ul>';
+
             for (var i = 0; i < results.length; i++) {
                 html += `<li><a href="${links[i]}" target="_blank">${results[i]}</a></li>`;
             }
             html += '</ul>';
-            wikipediaDiv.innerHTML = html;
+            wikiResults.innerHTML = html;
+        
+            localStorage.setItem('wikiResultsData', JSON.stringify(data));
         })
         .catch(function (err) { //Catching and console logging errors
             console.log(err);
@@ -54,7 +58,7 @@ searchForm.addEventListener('submit', function (event) { //Function for Bing Vid
     fetch(`https://bing-video-search1.p.rapidapi.com/videos/search?count=5&q=${q}`, bingOptions) //Fetches Bing with search input as "q"
         .then(response => response.json())
         .then(response => {
-            console.log(response)
+            // console.log(response)
             videosList.innerHTML = '';
             var videos = response.value;
         
@@ -67,6 +71,22 @@ searchForm.addEventListener('submit', function (event) { //Function for Bing Vid
 
                 videosList.appendChild(li);
             }
+            
+            localStorage.setItem('bingVideosData', JSON.stringify(response));
         })
         .catch(err => console.error(err));
 });
+
+var bingData = localStorage.getItem('bingVideosData');
+if (bingData) {
+    var data = JSON.parse(bingData);
+    console.log(bingData)
+    // Do something with the stored data
+}
+
+var wikiData = localStorage.getItem('wikiResultsData');
+if (wikiData) {
+    var data = JSON.parse(wikiData);
+    console.log(wikiData)
+    // Do something with the stored data
+}
