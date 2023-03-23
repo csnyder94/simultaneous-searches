@@ -33,7 +33,7 @@ var wikiHandleSearch = function (event) { //Function to fetch from WikiPedia
             html += '</ul>';
             wikiResults.innerHTML = html;
         
-            localStorage.setItem('wikiResultsData', JSON.stringify(data));
+            localStorage.setItem('wikiResultsData', JSON.stringify(data)); //Sets wiki local storage
         })
         .catch(function (err) { //Catching and console logging errors
             console.log(err);
@@ -72,21 +72,39 @@ searchForm.addEventListener('submit', function (event) { //Function for Bing Vid
                 videosList.appendChild(li);
             }
             
-            localStorage.setItem('bingVideosData', JSON.stringify(response));
+            localStorage.setItem('bingVideosData', JSON.stringify(response)); //Sets local storage for Bing
         })
         .catch(err => console.error(err));
 });
 
-var bingData = localStorage.getItem('bingVideosData');
+var bingData = localStorage.getItem('bingVideosData'); //Gets local storage for Bing
+
 if (bingData) {
     var data = JSON.parse(bingData);
-    console.log(bingData)
-    // Do something with the stored data
+    var videos = data.value;
+    videosList.innerHTML = '';
+
+    for (var i = 0; i < videos.length; i++) { //Reappends data to page on refresh using local storage
+        var video = videos[i]; 
+        var li = document.createElement('li');
+        li.innerHTML = `<div><a href="${video.contentUrl}" target="_blank"><h3>${video.name}</h3></a></div> 
+        <div><a href="${video.contentUrl}" target="_blank"><img src="${video.thumbnailUrl}" alt="${video.name}"></a></div>`;
+        videosList.appendChild(li);
+    }
 }
 
-var wikiData = localStorage.getItem('wikiResultsData');
+var wikiData = localStorage.getItem('wikiResultsData'); //Gets local storage for Wiki
+
 if (wikiData) {
     var data = JSON.parse(wikiData);
-    console.log(wikiData)
-    // Do something with the stored data
+    var results = data[1];
+    var links = data[3];
+    var html = '<ul>';
+
+    for (var i = 0; i < results.length; i++) {  //Reappends data to page on refresh using local storage
+        html += `<li><a href="${links[i]}" target="_blank">${results[i]}</a></li>`;
+    }
+
+    html += '</ul>';
+    wikiResults.innerHTML = html;
 }
