@@ -6,56 +6,19 @@
 
 body {  /* Style for entire body */
     font-family: 'Roboto Slab', serif;
-    height: 100%;
-    margin:0;
-}
-
-html{ /* Style for remaining HTML page */
-    background-color: lightgrey;
-    height: 100%;
-    margin: 0;
 }
 
 .main-header { /* Main Header "Simultaneous Searches" Style */
     background-color: var(--blue);
     color: var(--white);
-    text-align: center;
-    font-size: 50px;
-    padding: 50px;
+    font-size: 30px;
+    align-items: baseline;
 }
 
 .search-input { /* Style for search box */
-    margin: 20px ;
+    margin-top: 30px;
 }
 
-.search-button { /* Search Button Style */
-    background-color: var(--blue);
-    color: var(--white);
-    border-radius: 8px;
-}
-
-#previous-searches{
-    margin-left: 20px;
-}
-
-.columns{ /* Styling for columns and assigned size for footer usage */
-    font-weight: bolder;
-    min-height: 100%;
-    margin-bottom: 100px;
-}
-
-ul{   /* Removes "." from all lis */
+ul {   /* Removes "." from all lis */
     list-style-type: none;
-}
-
-#wiki-results{ /* Removes "." from wiki lis */
-    list-style-type: none;
-}
-
-footer { /* Forces footer to bottom */
-    height: 100px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
 }
