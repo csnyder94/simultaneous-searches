@@ -14,7 +14,7 @@ var wikiHandleSearch = function (event) { //Function to fetch from WikiPedia
     }
 
     var baseURL = 'https://en.wikipedia.org/w/api.php?origin=*&action=';
-    var apiURL = baseURL + 'opensearch&search=' + q + '&limit=5&namespace=0&format=json';
+    var apiURL = baseURL + 'opensearch&search=' + q + '&limit=8&namespace=0&format=json';
 
     fetch(apiURL)
         .then(function (response) {
@@ -55,7 +55,7 @@ searchForm.addEventListener('submit', function (event) { //Function for Bing Vid
 
     var q = qInput.value.trim(); //Takes user search input and makes into a variable trimming off whitespace
 
-    fetch(`https://bing-video-search1.p.rapidapi.com/videos/search?count=5&q=${q}`, bingOptions) //Fetches Bing with search input as "q"
+    fetch(`https://bing-video-search1.p.rapidapi.com/videos/search?count=3&q=${q}`, bingOptions) //Fetches Bing with search input as "q"
         .then(response => response.json())
         .then(response => {
             // console.log(response)
