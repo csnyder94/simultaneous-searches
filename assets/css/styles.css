@@ -35,7 +35,17 @@ html { /* Style for remaining HTML page */
     color: var(--white);
     border-radius: 8px;
     font-size: 20px;
-    
+    padding: 8px 16px;
+}
+
+#search-form {
+    display: flex;
+    align-items: center;
+}
+
+#search-form input {
+    flex-grow: 1;
+    padding: 8px;
 }
 
 .columns { /* Styling for columns and assigned size for footer usage */
