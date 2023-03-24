@@ -22,4 +22,4 @@ Madison Scercy: madiscercy@gmail.com
 This project was a collaboration between fellow classmate: Chris Snyder, Chris Williams, and Madison Scercy.
 
 ## Expected Webview
-![FIXED](https://user-images.githubusercontent.com/122477030/227591685-2e5e1a32-37f4-4f18-bb81-fe0471d24c42.png)
+![simultaneous-searches](https://user-images.githubusercontent.com/124528804/227597692-e9ef3dfd-f957-47f7-8037-117ce81cff1b.png)
